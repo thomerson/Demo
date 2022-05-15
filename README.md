@@ -6,5 +6,7 @@
 
 [.Net 【基础回顾】深浅复制 ](https://www.cnblogs.com/thomerson/p/11494483.html)
 
+# .Net Remoting
 
+[.Net 【Remoting】入门](https://www.cnblogs.com/thomerson/p/16271161.html)
 
