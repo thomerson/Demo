@@ -9,7 +9,7 @@ namespace Demo.FluentSchedulerConsole.Job
         public void Execute()
         {
             //Thread.Sleep(5000);
-            Logger.Write($"{nameof(MyJob)}:{System.DateTime.Now.ToString("yyyy-MM-dd HH:mm：ss")}");
+            Logger.Write($"{nameof(MyJob)}:{System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
         }
     }
 }
