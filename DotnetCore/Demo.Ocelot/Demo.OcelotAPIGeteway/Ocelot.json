@@ -1,6 +1,19 @@
 {
   "ReRoutes": [
     {
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 36111
+        }
+      ],
+      "priority": 0, //默认所有配置的路由优先级的值为0,配置的值越大就越优先匹配
+      "UpstreamPathTemplate": "/",
+      "UpstreamHttpMethod": [ "Get" ]
+    }, //万能模板，即所有请求都会匹配到该路由模板，但其优先级为最低，如果能匹配到其他模板，优先走其他路由
+    {
       "DownstreamPathTemplate": "/api/customers",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -9,6 +22,8 @@
           "Port": 36111
         }
       ],
+      "priority": 1, //默认所有配置的路由优先级的值为0,配置的值越大就越优先匹配
+      "RouteIsCaseSensitive": true, //默认情况下，匹配路由是不区分大小写的，开启大小写匹配
       "UpstreamPathTemplate": "/customers",
       "UpstreamHttpMethod": [ "Get" ]
     },
@@ -21,6 +36,7 @@
           "Port": 36111
         }
       ],
+      "priority": 1,
       "UpstreamPathTemplate": "/customers/{id}",
       "UpstreamHttpMethod": [ "Get" ]
     },
@@ -33,6 +49,7 @@
           "Port": 50054
         }
       ],
+      "priority": 1,
       "UpstreamPathTemplate": "/products",
       "UpstreamHttpMethod": [ "Get" ]
     }
