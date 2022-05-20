@@ -12,9 +12,9 @@ namespace Demo.Products.Controllers
     public class ProductsController : ControllerBase
     {
         [HttpGet]
-        public IEnumerable<string> Get()
+        public JsonResult Get()
         {
-            return new string[] { "Surface Book 2", "Mac Book Pro" };
+            return new JsonResult(new string[] { "Surface Book 2", "Mac Book Pro" });
         }
     }
 }

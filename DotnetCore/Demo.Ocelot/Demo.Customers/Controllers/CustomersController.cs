@@ -12,9 +12,9 @@ namespace Demo.Customers.Controllers
     public class CustomersController : ControllerBase
     {
         [HttpGet]
-        public IEnumerable<string> Get()
+        public JsonResult Get()
         {
-            return new string[] { "Catcher Wong", "James Li" };
+            return new JsonResult(new string[] { "Catcher Wong", "James Li" });
         }
 
         [HttpGet("{id}")]

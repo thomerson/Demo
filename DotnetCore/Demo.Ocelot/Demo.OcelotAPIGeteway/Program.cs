@@ -32,6 +32,7 @@ namespace Demo.OcelotAPIGeteway
              .ConfigureServices(s =>
              {
                  s.AddOcelot();
+                 s.AddSingletonDefinedAggregator<FakeDefinedAggregator>();
                  s.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
              })
              .Configure(a =>

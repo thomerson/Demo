@@ -22,8 +22,10 @@ builder.ConfigureAppConfiguration((hostingContext, config) =>
 
 builder.ConfigureServices(s =>
 {
-    s.AddOcelot()
-    .AddKubernetes();
+    s.AddOcelot();
+    s.AddAuthentication();
+    s.AddJwtBearer();
+    //.AddKubernetes();
     //.AddSingletonDefinedAggregator<FooAggregator>();
     //.AddConsul() //Consul
     //.AddConfigStoredInConsul();
