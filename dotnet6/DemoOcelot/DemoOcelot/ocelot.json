@@ -1,0 +1,44 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/customers",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5146
+        }
+      ],
+      "UpstreamPathTemplate": "/customers",
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "Tom"
+    },
+    {
+      "DownstreamPathTemplate": "/api/products",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5026
+        }
+      ],
+      "UpstreamPathTemplate": "/products",
+      "UpstreamHttpMethod": [ "Get" ],
+      "Key": "Jerry"
+    }
+  ],
+  "Aggregates": [
+    {
+      "RouteKeys": [ "Tom", "Jerry" ],
+      "UpstreamPathTemplate": "/tomAndJerry"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5042"
+    //"ServiceDiscoveryProvider": {
+    //  "Host": "localhost",
+    //  "Port": 9500,
+    //  "ConfigurationKey": "Oceolot_A" //÷∏∂®√‹‘ø
+    //}
+  }
+}
