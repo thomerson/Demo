@@ -3,6 +3,10 @@ using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
 using Ocelot.Provider.Kubernetes;
+using Ocelot.Provider.Polly;
+using Ocelot.Cache.CacheManager;
+using Ocelot.Cache;
+using DemoOcelot.midware;
 
 var builder = new WebHostBuilder();
 
@@ -22,13 +26,17 @@ builder.ConfigureAppConfiguration((hostingContext, config) =>
 
 builder.ConfigureServices(s =>
 {
-    s.AddOcelot();
-    s.AddAuthentication();
-    s.AddJwtBearer();
+    s.AddOcelot()
+    .AddPolly()
+    .AddCacheManager(x =>
+    {
+        x.WithDictionaryHandle();
+    }); // ocelotµÄCacheManager
+    //s.AddSingleton<IOcelotCache<CachedResponse>, OcelotCache<CachedResponse>>();
     //.AddKubernetes();
     //.AddSingletonDefinedAggregator<FooAggregator>();
-    //.AddConsul() //Consul
-    //.AddConfigStoredInConsul();
+    //.AddConsul()//Consul
+    //.AddConfigStoredInConsul();  // ConsulConfig
 }).ConfigureLogging((hostingContext, logging) =>
 {
     Console.WriteLine(logging);

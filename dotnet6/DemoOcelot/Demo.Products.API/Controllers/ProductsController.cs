@@ -10,6 +10,7 @@ namespace Demo.Products.API.Controllers
         [HttpGet]
         public JsonResult Get()
         {
+            Thread.Sleep(5000);
             return new JsonResult(new List<string>() { "Fish", "Milk" });
         }
     }

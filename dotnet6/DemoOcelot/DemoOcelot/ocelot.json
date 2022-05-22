@@ -1,7 +1,7 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/customers",
+      "DownstreamPathTemplate": "/api/Customers",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -12,6 +12,10 @@
       "UpstreamPathTemplate": "/customers",
       "UpstreamHttpMethod": [ "Get" ],
       "Key": "Tom"
+      //"ServiceName": "customer"
+      //"LoadBalancerOptions": {
+      //  "Type": "LeastConnection"
+      //}
     },
     {
       "DownstreamPathTemplate": "/api/products",
@@ -24,7 +28,11 @@
       ],
       "UpstreamPathTemplate": "/products",
       "UpstreamHttpMethod": [ "Get" ],
-      "Key": "Jerry"
+      "Key": "Jerry",
+      "FileCacheOptions": {
+        "TtlSeconds": 15,
+        "Region": "myRegion"
+      }
     }
   ],
   "Aggregates": [
@@ -34,11 +42,17 @@
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:5042"
+    "BaseUrl": "https://localhost:5042",
+    "QoSOptions": {
+      "ExceptionsAllowedBeforeBreaking": 3, //发生几次请求异常（比如超时）后进行熔断，该值必须大于0
+      "DurationOfBreak": 10000, //熔断时间（单位：毫秒）
+      "TimeoutValue": 2000 //下游请求超时时间（单位：毫秒，默认90秒）
+    }
     //"ServiceDiscoveryProvider": {
+    //  "Scheme": "http",
     //  "Host": "localhost",
-    //  "Port": 9500,
-    //  "ConfigurationKey": "Oceolot_A" //指定密钥
+    //  "Port": 8500,
+    //  "Type": "Consul"
     //}
   }
 }
