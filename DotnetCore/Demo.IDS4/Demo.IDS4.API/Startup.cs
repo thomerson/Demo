@@ -30,7 +30,7 @@ namespace Demo.IDS4.API
                 .AddInMemoryApiScopes(IdentityServerConfig.Scopes)
                 .AddInMemoryClients(IdentityServerConfig.Clients)
                 
-                .AddDeveloperSigningCredential();
+                .AddDeveloperSigningCredential();  
 
         }
 
