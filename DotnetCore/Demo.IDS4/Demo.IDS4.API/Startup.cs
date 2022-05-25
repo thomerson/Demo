@@ -27,9 +27,11 @@ namespace Demo.IDS4.API
         {
             services.AddControllers();
             services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                .AddInMemoryApiResources(Config.Apis)
-                .AddInMemoryClients(Config.Clients);
+                .AddInMemoryApiScopes(IdentityServerConfig.Scopes)
+                .AddInMemoryClients(IdentityServerConfig.Clients)
+                
+                .AddDeveloperSigningCredential();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,9 +42,9 @@ namespace Demo.IDS4.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseIdentityServer();
-
             app.UseRouting();
+
+            app.UseIdentityServer();
 
             app.UseAuthorization();
 
