@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.IDS4.MvcClient", "Demo.IDS4.MvcClient\Demo.IDS4.MvcClient.csproj", "{FC220786-F7BB-45C4-AB24-0A15DEE32246}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.IDS4.IdentityServer", "Demo.IDS4.IdentityServer\Demo.IDS4.IdentityServer.csproj", "{19625B5F-C88B-4ED3-A92E-B96E2EF4F55B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC220786-F7BB-45C4-AB24-0A15DEE32246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC220786-F7BB-45C4-AB24-0A15DEE32246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC220786-F7BB-45C4-AB24-0A15DEE32246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC220786-F7BB-45C4-AB24-0A15DEE32246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19625B5F-C88B-4ED3-A92E-B96E2EF4F55B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19625B5F-C88B-4ED3-A92E-B96E2EF4F55B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19625B5F-C88B-4ED3-A92E-B96E2EF4F55B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19625B5F-C88B-4ED3-A92E-B96E2EF4F55B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84BC5959-B399-4E40-97FE-2447AA7C29BB}
+	EndGlobalSection
+EndGlobal
