@@ -42,10 +42,10 @@ namespace Demo.IDS4.IdentityServer
                     AllowedGrantTypes = GrantTypes.Code,
                     
                     // where to redirect to after login
-                    RedirectUris = { "https://localhost:7667/signin-oidc" },
+                    RedirectUris = { "http://localhost:7667/signin-oidc" },
 
                     // where to redirect to after logout
-                    PostLogoutRedirectUris = { "https://localhost:7667/signout-callback-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:7667/signout-callback-oidc" },
 
                     AllowedScopes = new List<string>
                     {

@@ -1,6 +1,8 @@
 using IdentityServerHost.Quickstart.UI;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,6 +31,13 @@ namespace Demo.IDS4.IdentityServer
                .AddTestUsers(TestUsers.Users);
 
             builder.AddDeveloperSigningCredential();
+
+            services.AddAuthentication(option =>
+            {
+                option.DefaultAuthenticateScheme = "Cookies";//CookieAuthenticationDefaults.AuthenticationScheme;
+                option.DefaultChallengeScheme = "oidc";//CookieAuthenticationDefaults.AuthenticationScheme;
+            }).AddCookie();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +51,6 @@ namespace Demo.IDS4.IdentityServer
             {
                 app.UseExceptionHandler("/Error");
             }
-
 
             app.UseStaticFiles();
 
