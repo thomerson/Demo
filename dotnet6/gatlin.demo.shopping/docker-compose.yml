@@ -1,0 +1,10 @@
+version: '1'
+services:
+    productservice:
+        image：productservicepublish
+        ports:
+         - 5010:80
+    orderservice:
+        image:orderservicepublish
+        ports:
+         - 5011:80
