@@ -362,3 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 *.txt
+/DotnetCore/Demo.IDS4/Demo.IDS4.API/tempkey.jwk
