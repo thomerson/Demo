@@ -57,7 +57,7 @@ namespace Demo.gRPCaggregate.Client.Controllers
             // 负载均衡
 
             // 为了防止请求失败，可以加入重试机制，Polly
-            
+            // 健康检测也可以防止请求的服务器宕机
 
             // 建立连接
             var productChannel = GrpcChannel.ForAddress(nodes[0].Url);
