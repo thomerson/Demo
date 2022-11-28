@@ -1,4 +1,5 @@
 using Demo.ConsulCenter.Midware;
+using Demo.ConsulCenter.Registry;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -41,6 +42,8 @@ namespace Demo.ConsulCenter
                 //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 //c.IncludeXmlComments(xmlPath, true); //添加控制器层注释（true表示显示控制器注释）
             });
+
+            services.AddHostedService<ServiceRegistryIHostedService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,8 +86,8 @@ namespace Demo.ConsulCenter
                 //c.RoutePrefix = string.Empty; 
             });
 
-            //服务注册
-            app.RegisterConsul(Configuration, lifetime);
+            ////服务注册
+            //app.RegisterConsul(Configuration, lifetime);
         }
     }
 }
