@@ -1,0 +1,32 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Demo.gRPCService.ProductProto";
+
+package ProductService;
+
+// 定义服务名称
+service IProductService{
+	rpc GetProductById(ProductRequest) returns (ProductsResponse);
+
+	rpc GetProducts(ProductRequest) returns (ProductResponse);
+
+	// 流式传输 stream关键字
+	rpc GetProductsStream(ProductRequest) returns (stream ProductResponse);
+}
+
+// 定义入参
+message ProductRequest{
+	int32 id = 1;
+	string name = 2;
+}
+
+// 定义出参
+message ProductResponse{
+	int32 status = 1;
+	string message = 2;
+}
+
+// 出参集合
+message ProductsResponse{
+	repeated ProductResponse product = 1;
+}
