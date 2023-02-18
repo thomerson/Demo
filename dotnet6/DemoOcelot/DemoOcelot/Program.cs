@@ -5,8 +5,10 @@ using Ocelot.Provider.Consul;
 using Ocelot.Provider.Kubernetes;
 using Ocelot.Provider.Polly;
 using Ocelot.Cache.CacheManager;
+using CacheManager.Redis;
 using Ocelot.Cache;
 using DemoOcelot.midware;
+using CacheManager.Core;
 
 var builder = new WebHostBuilder();
 
@@ -27,12 +29,25 @@ builder.ConfigureAppConfiguration((hostingContext, config) =>
 builder.ConfigureServices(s =>
 {
     s.AddOcelot()
-    .AddPolly()
-    .AddCacheManager(x =>
-    {
-        x.WithDictionaryHandle();
-    }); // ocelot的CacheManager
-    //s.AddSingleton<IOcelotCache<CachedResponse>, OcelotCache<CachedResponse>>();
+    .AddPolly();
+    //.AddCacheManager(x =>
+    //{
+    //    x.WithRedisConfiguration("redis", config =>
+    //    {
+    //        config.WithAllowAdmin().WithPassword("redisPsd")//Redis 配置 密码
+    //        .WithDatabase(0)  //数据库
+    //        .WithEndpoint("localhost",6379); //Redis 服务地址 端口
+
+
+    //    })
+    //    .WithRedisCacheHandle("redis",true);  //using CacheManager.Core;
+
+    //    x.WithJsonSerializer(); //数据序列化方式
+
+    //    //x.WithDictionaryHandle(); //ocelot的CacheManager  字典方式处理
+    //});
+
+    s.AddSingleton<IOcelotCache<CachedResponse>, OcelotCache<CachedResponse>>();
     //.AddKubernetes();
     //.AddSingletonDefinedAggregator<FooAggregator>();
     //.AddConsul()//Consul

@@ -44,15 +44,15 @@
   "GlobalConfiguration": {
     "BaseUrl": "https://localhost:5042",
     "QoSOptions": {
-      "ExceptionsAllowedBeforeBreaking": 3, //·¢Éú¼¸´ÎÇëÇóÒì³££¨±ÈÈç³¬Ê±£©ºó½øĞĞÈÛ¶Ï£¬¸ÃÖµ±ØĞë´óÓÚ0
-      "DurationOfBreak": 10000, //ÈÛ¶ÏÊ±¼ä£¨µ¥Î»£ººÁÃë£©
-      "TimeoutValue": 2000 //ÏÂÓÎÇëÇó³¬Ê±Ê±¼ä£¨µ¥Î»£ººÁÃë£¬Ä¬ÈÏ90Ãë£©
+      "ExceptionsAllowedBeforeBreaking": 3, //å‘ç”Ÿå‡ æ¬¡è¯·æ±‚å¼‚å¸¸ï¼ˆæ¯”å¦‚è¶…æ—¶ï¼‰åè¿›è¡Œç†”æ–­ï¼Œè¯¥å€¼å¿…é¡»å¤§äº0
+      "DurationOfBreak": 10000, //ç†”æ–­æ—¶é—´ï¼ˆå•ä½ï¼šæ¯«ç§’ï¼‰
+      "TimeoutValue": 2000 //ä¸‹æ¸¸è¯·æ±‚è¶…æ—¶æ—¶é—´ï¼ˆå•ä½ï¼šæ¯«ç§’ï¼Œé»˜è®¤90ç§’ï¼‰
+    },
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul"
     }
-    //"ServiceDiscoveryProvider": {
-    //  "Scheme": "http",
-    //  "Host": "localhost",
-    //  "Port": 8500,
-    //  "Type": "Consul"
-    //}
   }
 }
