@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IdentityServer4.Services;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace Demo.IDS4.API
 {
@@ -37,6 +39,34 @@ namespace Demo.IDS4.API
                 .AddInMemoryApiScopes(IdentityServerConfig.Scopes)
                 .AddInMemoryClients(IdentityServerConfig.Clients)
                 .AddTestUsers(IdentityServerConfig.Users.ToList());
+
+
+            #region sql 持久化
+            //// 将内存模式改为从数据库中读取
+            //var strConn = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=IdentityServer4DB;
+            //        Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;
+            //        ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            //var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+          
+            //services.AddIdentityServer()
+            //    // 配置ConfigurationDBContext上下文  针对配置数据，比如客户端(Client)、资Y源(Resources)等
+            //    .AddConfigurationStore(options =>
+            //    {
+            //        options.ConfigureDbContext = dbBuilder =>
+            //        {
+            //            dbBuilder.UseSqlServer(strConn, t_builder => t_builder.MigrationsAssembly(migrationsAssembly));
+            //        };
+            //    })
+            //    // 配置PersistedGrantDbContext上下文 针对用户授权操作时的数据和临时数据，比如同意授权的数据、Token等
+            //    .AddOperationalStore(options =>
+            //    {
+            //        options.ConfigureDbContext = dbBuilder =>
+            //        {
+            //            dbBuilder.UseSqlServer(strConn, t_builder => t_builder.MigrationsAssembly(migrationsAssembly));
+            //        };
+            //    })
+            //    ;
+            #endregion
 
         }
 
