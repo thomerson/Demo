@@ -26,11 +26,17 @@ namespace Demo.IDS4.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //services.AddIdentityServer()
+            //    .AddInMemoryApiScopes(IdentityServerConfig.Scopes)
+            //    .AddInMemoryClients(IdentityServerConfig.Clients)
+
+            //    .AddDeveloperSigningCredential();  
+
+            // 使用内存存储，密钥，客户端和资源来配置身份服务器。
             services.AddIdentityServer()
                 .AddInMemoryApiScopes(IdentityServerConfig.Scopes)
                 .AddInMemoryClients(IdentityServerConfig.Clients)
-                
-                .AddDeveloperSigningCredential();  
+                .AddTestUsers(IdentityServerConfig.Users.ToList());
 
         }
 
