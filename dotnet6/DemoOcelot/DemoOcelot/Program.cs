@@ -9,6 +9,7 @@ using CacheManager.Redis;
 using Ocelot.Cache;
 using DemoOcelot.midware;
 using CacheManager.Core;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = new WebHostBuilder();
 
@@ -28,6 +29,19 @@ builder.ConfigureAppConfiguration((hostingContext, config) =>
 
 builder.ConfigureServices(s =>
 {
+    s.AddAuthentication()
+    .AddJwtBearer("customer.api", option =>
+    {
+        option.Audience = "customer.api";
+        option.Authority = "http://localhost:5146";
+        option.RequireHttpsMetadata = false;
+    }).AddJwtBearer("product.api", y =>
+    {
+        y.Audience = "product.api";
+        y.Authority = "http://localhost:5026";
+        y.RequireHttpsMetadata = false;
+    });
+
     s.AddOcelot()
     .AddPolly();
     //.AddCacheManager(x =>

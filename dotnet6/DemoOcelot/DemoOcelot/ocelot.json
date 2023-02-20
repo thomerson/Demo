@@ -11,7 +11,11 @@
       ],
       "UpstreamPathTemplate": "/customers",
       "UpstreamHttpMethod": [ "Get" ],
-      "Key": "Tom"
+      "Key": "Tom",
+      "AuthenticationOptions": { //授权信息
+        "AuthenticationProviderKey": "customer.api",
+        "AllowedScopes": [ "customer.api" ]
+      }
       //"ServiceName": "customer"
       //"LoadBalancerOptions": {
       //  "Type": "LeastConnection"
@@ -32,6 +36,10 @@
       "FileCacheOptions": {
         "TtlSeconds": 15,
         "Region": "myRegion"
+      },
+      "AuthenticationOptions": { //授权信息
+        "AuthenticationProviderKey": "product.api",
+        "AllowedScopes": [ "product.api" ]
       }
     }
   ],
@@ -47,12 +55,12 @@
       "ExceptionsAllowedBeforeBreaking": 3, //发生几次请求异常（比如超时）后进行熔断，该值必须大于0
       "DurationOfBreak": 10000, //熔断时间（单位：毫秒）
       "TimeoutValue": 2000 //下游请求超时时间（单位：毫秒，默认90秒）
-    },
-    "ServiceDiscoveryProvider": {
-      "Scheme": "http",
-      "Host": "localhost",
-      "Port": 8500,
-      "Type": "Consul"
-    }
+    }//,
+    //"ServiceDiscoveryProvider": {
+    //  "Scheme": "http",
+    //  "Host": "localhost",
+    //  "Port": 8500,
+    //  "Type": "Consul"
+    //}
   }
 }
