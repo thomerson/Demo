@@ -43,6 +43,7 @@ builder.ConfigureServices(s =>
     });
 
     s.AddOcelot()
+    .AddConsul()
     .AddPolly();
     //.AddCacheManager(x =>
     //{
