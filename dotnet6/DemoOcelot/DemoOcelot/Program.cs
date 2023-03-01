@@ -10,6 +10,7 @@ using Ocelot.Cache;
 using DemoOcelot.midware;
 using CacheManager.Core;
 using Microsoft.Extensions.DependencyInjection;
+using SkyApm.Utilities.DependencyInjection;
 
 var builder = new WebHostBuilder();
 
@@ -41,6 +42,8 @@ builder.ConfigureServices(s =>
         y.Authority = "http://localhost:5026";
         y.RequireHttpsMetadata = false;
     });
+
+    s.AddSkyApmExtensions();  //skywalking 
 
     s.AddOcelot()
     .AddConsul()

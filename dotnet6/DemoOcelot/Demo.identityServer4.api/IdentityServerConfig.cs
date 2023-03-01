@@ -19,10 +19,11 @@ namespace Demo.identityServer4.api
 
         public static IEnumerable<Client> Clients => new List<Client> {
             new Client(){
-                ClientId =  "client.ocelot",
+                ClientId =  "ocelot",
                 AllowedGrantTypes = GrantTypes.ClientCredentials, // 客户端模式
                 AllowedScopes = new List<string> { "customer.api","product.api" },
-                ClientSecrets  = { new Secret("secret".Sha256())}
+                //ClientSecrets  = { new Secret("secret".Sha256())}
+                 ClientSecrets  = { new Secret("secret")}
             }
         };
 

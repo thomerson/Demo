@@ -23,6 +23,7 @@
     <PackageReference Include="Ocelot.Provider.Consul" Version="18.0.0" />
     <PackageReference Include="Ocelot.Provider.Kubernetes" Version="18.0.0" />
     <PackageReference Include="Ocelot.Provider.Polly" Version="18.0.0" />
+    <PackageReference Include="SkyAPM.Agent.AspNetCore" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
